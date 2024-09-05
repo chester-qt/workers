@@ -1,4 +1,4 @@
-import worker as w
+from worker import worker
 
 
 class main:
@@ -30,7 +30,7 @@ class main:
     # Name of terminal (defaults to iTerm)
     terminal = "iTerm"
     
-    process_workers = w.worker(queues, memory, path, repo, branch, terminal)
+    process_workers = worker(queues, memory, path, repo, branch, terminal)
     
     process_workers.run()
     
