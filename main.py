@@ -2,8 +2,11 @@ import worker as w
 
 
 class main:
+    
     path = "/qt/iaf"
+    
     repo = "iaf-dc-backend"
+    
     branch = "develop"
     
     queues = [
@@ -19,7 +22,9 @@ class main:
     
     memory = 1024
     
-    process_workers = w.worker(queues, memory, path, repo, branch)
+    terminal = "iTerm"
+    
+    process_workers = w.worker(queues, memory, path, repo, branch, terminal)
     
     process_workers.run()
     

@@ -1,12 +1,13 @@
 import subprocess as sb
 
 class worker: 
-    def __init__(self, queues, memory, path, repo, branch = "develop"):
+    def __init__(self, queues, memory, path, repo, branch = "develop", terminal = "iTerm"):
         self.queues = queues
         self.memory = memory
         self.path = path
         self.repo = repo
         self.branch = branch
+        self.terminal = terminal
         
     def run(self):
         self.processWorkers()
@@ -22,7 +23,7 @@ class worker:
             command = f"php artisan queue:work redis --queue={queue} --memory={self.memory}"
             
             apple_script = f'''
-                            tell application "iTerm"
+                            tell application "{self.terminal}"
                                 activate
                                 tell current window
                                     create tab with default profile
